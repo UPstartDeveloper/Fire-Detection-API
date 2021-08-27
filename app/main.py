@@ -4,7 +4,7 @@ from fire_classifier.predictor import ImagePredictor
 
 app = FastAPI()
 
-predictor_config_path = "config.yaml"
+predictor_config_path = "./app/config.yaml"
 
 predictor = ImagePredictor.init_from_config_url(predictor_config_path)
 
