@@ -1,6 +1,6 @@
 from fastapi import FastAPI, File, UploadFile
 
-from fast_image_classification.predictor import ImagePredictor
+from fire_classifier.predictor import ImagePredictor
 
 app = FastAPI()
 

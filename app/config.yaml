@@ -1,5 +1,5 @@
 resize_shape: [256, 256]
 targets: ['Fire_Images', 'Normal_Images']
-model_path: "TODO"
-model_url: "TODO"
-model_sha256: "TODO"
+model_path: "fire_classifier.h5"
+model_url: "https://github.com/UPstartDeveloper/Fire-Detection-API/releases/download/v0.0.1/fire_classifier.h5"
+model_sha256: "b527ecea0f4786e45eb0242f263752c45fb55754"
