@@ -11,12 +11,12 @@ try:
 except:
     REQUIRED = []
 
-setup(name='fast_image_classification',
+setup(name='YOUR_API_NAMME',
       version='0.1.0',
-      description='Tiny library for image classification',
-      author='Youness Mansar',
-      author_email='mansaryounessecp@gmail.com',
-      url='https://github.com/CVxTz/FastImageClassification',
+      description='ADD_A_DESCRIPTION',
+      author='YOUR_NAME',
+      author_email='YOUR_EMAIL',
+      url='YOUR_REPO_URL',
       license='MIT',
       install_requires=REQUIRED,
       classifiers=[
