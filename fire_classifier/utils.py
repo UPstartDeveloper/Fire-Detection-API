@@ -1,6 +1,6 @@
 import hashlib
 import os
-from tensorflow.keras.utils import get_file
+from tensorflow import keras
 
 
 def get_hash(filename):
@@ -12,8 +12,19 @@ def get_hash(filename):
     return sha256_hash.hexdigest()
 
 
-def download_model(url, file_path, file_sha256):
-    if os.path.exists(file_path) and get_hash(file_path) == file_sha256:
+def download_model(urls, file_paths, file_sha256):
+    params_file, layers_file = file_paths
+    params_url, layers_url = urls
+    if (
+        os.path.exists(params_file)
+        and os.path.exists(layers_file)
+        and get_hash(layers_file) == file_sha256
+    ):
         print("File already exists")
     else:
-        get_file(origin=url, fname=file_path, cache_dir=".", cache_subdir="")
+        keras.utils.get_file(
+            origin=params_url, fname=params_file, cache_subdir=""
+        )
+        keras.utils.get_file(
+            origin=layers_url, fname=layers_file, cache_subdir=""
+        )

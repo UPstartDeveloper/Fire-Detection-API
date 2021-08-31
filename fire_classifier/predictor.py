@@ -1,6 +1,7 @@
 import argparse
 
 import numpy as np
+from typing import List
 import yaml
 from tensorflow.keras.models import load_model
 
@@ -12,9 +13,11 @@ from fire_classifier.utils import download_model
 
 
 class ImagePredictor:
-    def __init__(self, model_path, resize_size, targets):
-        self.model_path = model_path
-        self.model = load_model(self.model_path)
+    def __init__(
+        self, model_paths: List[str], resize_size: List[int], targets: List[str]
+    ):
+        self.model_paths = model_paths
+        self.model = load_model(self.model_paths)
         self.resize_size = resize_size
         self.targets = targets
 
@@ -23,7 +26,7 @@ class ImagePredictor:
         with open(config_path, "r") as f:
             config = yaml.load(f, yaml.SafeLoader)
         predictor = cls(
-            model_path=config["model_path"],
+            model_paths=config["model_paths"],
             resize_size=config["resize_shape"],
             targets=config["targets"],
         )
@@ -35,7 +38,7 @@ class ImagePredictor:
             config = yaml.load(f, yaml.SafeLoader)
 
         download_model(
-            config["model_url"], config["model_path"], config["model_sha256"]
+            config["model_file_urls"], config["model_paths"], config["model_sha256"]
         )
 
         return cls.init_from_config_path(config_path)
