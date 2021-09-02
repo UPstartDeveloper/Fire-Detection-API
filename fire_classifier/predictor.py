@@ -19,7 +19,7 @@ class ImagePredictor:
 
     @classmethod
     def init_from_config_path(cls, config_path):
-        '''Parses the config file, and instantiates a new ImagePredictor'''
+        """Parses the config file, and instantiates a new ImagePredictor"""
         # load details for setting up the model
         with open(config_path, "r") as f:
             config = yaml.load(f, yaml.SafeLoader)
@@ -28,13 +28,13 @@ class ImagePredictor:
         return predictor
 
     def predict_from_array(self, arr) -> Dict[str, float]:
-        '''Returns a prediction value the sample belongs to each class.'''
+        """Returns a prediction value the sample belongs to each class."""
         pred = self.model.predict(arr[np.newaxis, ...]).ravel().tolist()
         pred = [round(x, 3) for x in pred]  # values between 0-1
         return {class_label: prob for class_label, prob in zip(self.targets, pred)}
 
     def predict_from_file(self, file_object):
-        '''Converts uploaded image to a NumPy array and classifies it.'''
+        """Converts uploaded image to a NumPy array and classifies it."""
         arr = read_from_file(file_object)
         return self.predict_from_array(arr)
 

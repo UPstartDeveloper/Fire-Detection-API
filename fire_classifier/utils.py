@@ -51,12 +51,14 @@ def download_model(url, file_paths, file_sha256=None):
         else:  # need to download the model
             model_file_url = f"{url}/{model_file_path}"
             keras.utils.get_file(
-                origin=model_file_url, fname=model_file_path, 
-                cache_dir=".", cache_subdir="./model"
+                origin=model_file_url,
+                fname=model_file_path,
+                cache_dir=".",
+                cache_subdir="./model",
             )
 
 
-def load_model(url, file_paths, file_sha256=None, format='composite'):
+def load_model(url, file_paths, file_sha256=None, format="composite"):
     """
     Model reconstruction.
 
@@ -70,7 +72,7 @@ def load_model(url, file_paths, file_sha256=None, format='composite'):
         file_sha256(str): the supposed hash of one of the files
                           we need to download. Checked against the
                           one we may already have in the codebase.
-        format(str): currently this only supports 'composite' 
+        format(str): currently this only supports 'composite'
                      (which is for when the model is saved using a H5 + JSON)
                      or 'h5' as the save format of the model.
 
@@ -79,7 +81,7 @@ def load_model(url, file_paths, file_sha256=None, format='composite'):
     """
 
     def _model_from_composite_format():
-        '''Specific to using H5 + JSON as the save format'''
+        """Specific to using H5 + JSON as the save format"""
         params_file, layers_file = file_paths
         # load the model in memory
         with open(f"./model/{layers_file}") as f:
@@ -88,14 +90,14 @@ def load_model(url, file_paths, file_sha256=None, format='composite'):
         return model
 
     def _model_from_h5():
-        '''Specific to using a single Hadoop(H5) file'''
+        """Specific to using a single Hadoop(H5) file"""
         params_file = file_paths[0]
         return keras.models.load_model(params_file)
-    
+
     # First download the model, if needed
     download_model(url, file_paths, file_sha256)
     # load the model in memory
-    if format == 'composite':
+    if format == "composite":
         return _model_from_composite_format()
     else:  # assuming a single H5
         return _model_from_h5()
