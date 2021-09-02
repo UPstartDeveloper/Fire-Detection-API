@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    # command: uvicorn app.main:app
+    ports:
+      - "8080:8080"
