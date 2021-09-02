@@ -21,7 +21,6 @@ Alternatively, you can also make a virtual environment and run it using the `uvi
 $ python3 -m venv env  # creates a virtualenv
 $ source env/bin/activate  # now you're in the virtualenv
 $ uvicorn app.main:app --reload  # run the app
-
 ```
 
 ## The Data and the Model
