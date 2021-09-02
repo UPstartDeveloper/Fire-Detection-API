@@ -1,5 +1,6 @@
-# *The* Fire Detection API
-![Project cover image](https://i.postimg.cc/1RNPLFF3/Screen-Shot-2021-09-02-at-9-58-41-AM.png)
+# DeepFire
+![Project cover image](https://i.postimg.cc/d1tr9S2H/Screen-Shot-2021-09-02-at-12-37-00-PM.png)
+An API for detecting fires in images using deep learning.
 
 Deep learning has the power to potentially save millions of dollars (and more importantly, lives) in places like California where the annual "fire season" arrives every Fall.
 
