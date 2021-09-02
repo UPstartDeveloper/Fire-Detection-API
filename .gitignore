@@ -11,7 +11,7 @@ __pycache__/
 .vscode
 
 # Keras Models
-*.h5
+model/*
 
 # Distribution / packaging
 .Python
