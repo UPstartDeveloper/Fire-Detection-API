@@ -45,9 +45,9 @@ def download_model(url, file_paths, file_sha256=None):
     """
     # Download only the model files that are needed
     for model_file_path in file_paths:
-        is_secure = get_hash(model_file_path) == file_sha256
-        if os.path.exists(model_file_path) and is_secure:
-            print(f"File already exists: {model_file_path}")
+        if os.path.exists(model_file_path):
+            if get_hash(model_file_path) == file_sha256:
+                print(f"File already exists: {model_file_path}")
         else:  # need to download the model
             model_file_url = f"{url}/{model_file_path}"
             keras.utils.get_file(
