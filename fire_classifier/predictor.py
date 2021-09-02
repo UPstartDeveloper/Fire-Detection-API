@@ -1,42 +1,48 @@
 import argparse
 
 import numpy as np
+from typing import List
 import yaml
-from tensorflow.keras.models import load_model
 
 from fire_classifier.preprocessing_utilities import (
     read_img_from_path,
     read_from_file,
 )
-from fire_classifier.utils import download_model
+from fire_classifier.utils import download_model, load_model
 
 
 class ImagePredictor:
-    def __init__(self, model_path, resize_size, targets):
-        self.model_path = model_path
-        self.model = load_model(self.model_path)
+    def __init__(
+        self, model_paths: List[str], resize_size: List[int], 
+        base_download_url: str, targets: List[str]
+    ):
+        self.model_paths = model_paths
         self.resize_size = resize_size
+        self.model = load_model(base_download_url, self.model_paths)
         self.targets = targets
 
     @classmethod
     def init_from_config_path(cls, config_path):
+        # load details for setting up the model
         with open(config_path, "r") as f:
             config = yaml.load(f, yaml.SafeLoader)
+        # use the config data, to integrate the model into the new object
         predictor = cls(
-            model_path=config["model_path"],
+            model_paths=config["model_paths"],
             resize_size=config["resize_shape"],
+            base_download_url=config["base_model_url"],
             targets=config["targets"],
         )
         return predictor
 
     @classmethod
     def init_from_config_url(cls, config_path):
-        with open(config_path, "r") as f:
-            config = yaml.load(f, yaml.SafeLoader)
+        # with open(config_path, "r") as f:
+        #     config = yaml.load(f, yaml.SafeLoader)
 
-        download_model(
-            config["model_url"], config["model_path"], config["model_sha256"]
-        )
+        # download_model(
+        #     config["model_file_urls"], config["model_paths"], config["model_sha256"]
+        # )
 
         return cls.init_from_config_path(config_path)
 
