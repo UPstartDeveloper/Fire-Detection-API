@@ -11,6 +11,7 @@ try:
 except:
     REQUIRED = []
 
+# Use this if you plan to turn this project into a PyPI package!
 setup(
     name="YOUR_API_NAMME",
     version="0.1.0",

@@ -1,3 +1,4 @@
+# Use this if you choose to deploy on the GCP App Engine!
 runtime: custom
 env: flex
 service: default
