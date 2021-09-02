@@ -1,5 +1,5 @@
 resize_shape: [256, 256]
 targets: ['Fire_Images']
 model_paths: ["fire_classifier_params.h5", "fire_classifier_layers.json"]
-model_file_urls: ["https://github.com/UPstartDeveloper/Fire-Detection-API/releases/download/v0.0.2/fire_classifier_params.h5", "https://github.com/UPstartDeveloper/Fire-Detection-API/releases/download/v0.0.2/fire_classifier_layers.json"]
+base_model_url: "https://github.com/UPstartDeveloper/Fire-Detection-API/releases/download/v0.0.2"
 model_sha256: "26f32ae0666bbb83e11968935db0ec2ab06623d1"
