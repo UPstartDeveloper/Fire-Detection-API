@@ -10,6 +10,9 @@ We built this API to show how the technology can fight this and other crises, an
 ### Use the API
 To classify your own images, you can use the live API: use the link [here](https://fire-detection-api.herokuapp.com/docs) to read the documentation and send requests.
 
+### Run the Tests
+TBD
+
 ### Running Locally
 You can download this repository and run it using [Docker](https://www.docker.com/get-started):
 
