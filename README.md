@@ -15,16 +15,24 @@ To classify your own images, you can use the live API: use the link [here](https
 TBD
 
 ### Running Locally
+
+#### Using Docker
 You can download this repository and run it using [Docker](https://www.docker.com/get-started):
 
 ```docker compose up```
 
-Alternatively, you can also make a virtual environment and run it using the `uvicorn` package:
+#### Using Virtual Environments
+
+Alternatively, you can also make a virtual environment and install the dependencies locally:
 
 ```
-$ python3 -m venv env  # creates a virtualenv
-$ source env/bin/activate  # now you're in the virtualenv
-$ uvicorn app.main:app --reload  # run the app
+$ python3 -m venv env  
+$ source env/bin/activate 
+(env) $ python -m pip install -r requirements.txt
+```
+And then run the app using `uvicorn` in the Command Line:
+```
+(env) $ uvicorn app.main:app --reload  
 ```
 
 ## The Data and the Model
@@ -47,3 +55,4 @@ In this project, we've worked with different tools like Tensorflow, Docker, Fast
 ## Credits and Resources
 1. This *Towards Data Science* [blog](https://towardsdatascience.com/a-step-by-step-tutorial-to-build-and-deploy-an-image-classification-api-95fa449f0f6a) by Youness Mansar will give you a little more detail on how you can build a deployment-driven deep learning project (using the Google Cloud Platform's App Engine).
 2. Another [blog](https://towardsdatascience.com/how-to-deploy-your-fastapi-app-on-heroku-for-free-8d4271a4ab9#beb1) by  Shinichi Okada in *Towards Data Science* will give more details how to deploy FastAPI applications (such as this repo!) on Heroku specifically.
+3. If you're curious to know why we used `python -m pip` in the [Using Virtual Environments](#using-virtual-environments) section, please read this [explanation](https://snarky.ca/why-you-should-use-python-m-pip/) to see how it differs from just using `pip`/`pip3`.
