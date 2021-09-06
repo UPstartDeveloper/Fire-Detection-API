@@ -8,6 +8,8 @@ API_VERSION = "0.0.2"
 
 # Info about what data users can request.
 # These are intended shown on the UI, related only to a specific endpoint.
+# Note: the value in the "name" field should match what goes in the
+#       "tags" parameter of the corresponding app route in main.py!!
 API_ENDPOINTS = (
     {
         "name": "Detect Fire",
@@ -17,7 +19,7 @@ API_ENDPOINTS = (
 
 # Tells the app how to find the config.yaml (for running ML inference)
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-CONFIG_PATH = os.path.join(BASE_DIR, 'app', 'config.yaml')
+CONFIG_PATH = os.path.join(BASE_DIR, "app", "config.yaml")
 
 # Wraps all the API metadata as one dictionary
 API = {

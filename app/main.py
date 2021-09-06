@@ -3,8 +3,12 @@ from fire_classifier.predictor import ImagePredictor
 from fire_classifier.util.api import API
 
 # A: init API
-app = FastAPI(title=API["title"], description=API["description"],
-              version=API["version"], openapi_tags=API["endpoints"])
+app = FastAPI(
+    title=API["title"],
+    description=API["description"],
+    version=API["version"],
+    openapi_tags=API["endpoints"],
+)
 
 # B: init ML inference object, and the routes
 predictor_config_path = API["config_path"]
