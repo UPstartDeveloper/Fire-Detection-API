@@ -11,12 +11,10 @@ __pycache__/
 .vscode
 
 # Keras Models
-*model/*
+model/
 
 # Images Downloaded for Testing
-*.jpg
-*.jpeg
-*.png
+test-assets/
 
 # Distribution / packaging
 .Python

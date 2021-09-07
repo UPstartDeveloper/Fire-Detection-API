@@ -16,7 +16,7 @@ class ClassifierAPITest(unittest.TestCase):
         # A: get image
         image_path = tf.keras.utils.get_file(
             origin=self.TEST_COLOR_IMG_URL, 
-            cache_dir=".", cache_subdir="."
+            cache_dir=".", cache_subdir="./test-assets"
         )
         with open(image_path, 'rb') as f:
             # B: format a mock request
