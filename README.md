@@ -1,7 +1,7 @@
 # DeepFire
 ![This repo has a MIT license](https://img.shields.io/github/license/UPstartDeveloper/Fire-Detection-API)
 ![Automated tests passing on Travis (.org)](https://img.shields.io/travis/UPstartDeveloper/Fire-Detection-API)
-![Docker Image Size (latest)](https://img.shields.io/docker/image-size/zainrazatheupstart/fire-classifier-api/latest)
+![Docker Image Size (latest)](https://img.shields.io/docker/image-size/zainrazatheupstart/fire-classifier-api/latest?style=flat-square)
 ![Project cover image](https://i.postimg.cc/d1tr9S2H/Screen-Shot-2021-09-02-at-12-37-00-PM.png)
 An API for detecting fires in images using deep learning.
 
