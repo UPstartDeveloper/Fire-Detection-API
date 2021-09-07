@@ -12,7 +12,7 @@ API_VERSION = "0.0.2"
 #       "tags" parameter of the corresponding app route in main.py!!
 API_ENDPOINT_DATA = (
     {
-        "name": "Detect Fire",
+        "name": "Detect Fire in an Image",
         "description": "Predicts the possibility that a color image contains fire.",
     },
 )

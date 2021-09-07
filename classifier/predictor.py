@@ -4,8 +4,8 @@ import numpy as np
 from typing import Dict
 import yaml
 
-from fire_classifier.util import preprocessing
-from fire_classifier.util.model import ModelUtility
+from classifier.util import preprocessing
+from classifier.util.model import ModelUtility
 
 
 class ImagePredictor:
