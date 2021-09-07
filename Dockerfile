@@ -1,5 +1,6 @@
 FROM python:3.6-slim
 COPY app/ /app/
+COPY classifier/ /classifier/
 WORKDIR /
 RUN apt update
 RUN apt install -y git

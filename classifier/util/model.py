@@ -26,12 +26,12 @@ class ModelUtility:
 
     @classmethod
     def reconstruct_model(cls, config):
-        '''Make a new instance, and load in the model straightaway.'''
+        """Make a new instance, and load in the model straightaway."""
         model_utility = cls(config)
         # detect save format
-        save_format = 'composite'
+        save_format = "composite"
         if config["model_file_paths"] and len(config["model_file_paths"]) == 1:
-            save_format = 'h5'
+            save_format = "h5"
         # load the model
         return model_utility.load_model(save_format)
 
