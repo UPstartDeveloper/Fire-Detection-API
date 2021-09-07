@@ -4,17 +4,15 @@ import numpy as np
 from typing import Dict
 import yaml
 
-from fire_classifier.preprocessing_utilities import read_from_file
-from fire_classifier.utils import load_model
+from classifier.util import preprocessing
+from classifier.util.model import ModelUtility
 
 
 class ImagePredictor:
     def __init__(self, config: Dict[str, int or str]):
         self.model_paths = config["model_file_paths"]
         self.resize_size = config["resize_shape"]
-        self.model = load_model(
-            config["base_model_url"], self.model_paths, config["model_sha256"]
-        )
+        self.model = ModelUtility.reconstruct_model(config)
         self.targets = config["targets"]
 
     @classmethod
@@ -35,7 +33,7 @@ class ImagePredictor:
 
     def predict_from_file(self, file_object):
         """Converts uploaded image to a NumPy array and classifies it."""
-        arr = read_from_file(file_object)
+        arr = preprocessing.read_from_file(file_object)
         return self.predict_from_array(arr)
 
 

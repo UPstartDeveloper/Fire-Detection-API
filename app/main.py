@@ -1,27 +1,21 @@
 from fastapi import FastAPI, File, UploadFile
-from fire_classifier.predictor import ImagePredictor
+from classifier.predictor import ImagePredictor
+from app.settings import API_SETTINGS
 
-# A: define description for the API endpoints (shown on UI)
-endpoint_metadata = [
-    {
-        "name": "classify-image",
-        "description": "Predicts the possibility that a RBG image contains fire.",
-    },
-]
-# B: init API
+# A: init API
 app = FastAPI(
-    title="DeepFire",
-    description="A REST API for detecting the presence of fire in an image.",
-    version="0.0.2",
-    openapi_tags=endpoint_metadata,
+    title=API_SETTINGS["title"],
+    description=API_SETTINGS["description"],
+    version=API_SETTINGS["version"],
+    openapi_tags=API_SETTINGS["openapi_tags"],
 )
 
-# C: init ML inference object
-predictor_config_path = "./app/config.yaml"
+# B: init ML inference object, and the routes
+predictor_config_path = API_SETTINGS["predictor_config_path"]
 predictor = ImagePredictor.init_from_config_path(predictor_config_path)
 
 
-@app.post("/classify-image/", tags=["classify-image"])
+@app.post("/classify-image/", tags=["Detect Fire in an Image"])
 def create_upload_file(file: UploadFile = File(...)):
     """Predicts the possibility that a RBG image contains fire."""
     return predictor.predict_from_file(file.file)
