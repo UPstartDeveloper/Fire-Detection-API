@@ -15,15 +15,17 @@ We built this API to show how the technology can fight this and other crises, an
 To classify your own images, you can use the live API: use the link [here](https://fire-detection-api.herokuapp.com/docs) to read the documentation and send requests.
 
 ### Running Locally
+You only need to use ONE of the following options:
 
-#### Using Docker
+#### Option #1: Using Docker
 You can download this repository and run it using [Docker](https://www.docker.com/get-started):
 
 ```docker compose up```
 
-#### Using Virtual Environments
+#### Option #2: Using Virtual Environments
 
-Alternatively, you can also make a virtual environment and install the dependencies locally:
+Alternatively, you can also make a virtual environment. This is *recommended*, as it will allow you to also run the automated tests as well 
+(discussed below). Here is the command to install the dependencies locally:
 
 ```
 $ python3 -m venv env  
