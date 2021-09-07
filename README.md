@@ -11,9 +11,6 @@ We built this API to show how the technology can fight this and other crises, an
 ### Use the API
 To classify your own images, you can use the live API: use the link [here](https://fire-detection-api.herokuapp.com/docs) to read the documentation and send requests.
 
-### Run the Tests
-TBD
-
 ### Running Locally
 
 #### Using Docker
@@ -33,6 +30,12 @@ $ source env/bin/activate
 And then run the app using `uvicorn` in the Command Line:
 ```
 (env) $ uvicorn app.main:app --reload  
+```
+
+### Run the Tests
+To run the tests, you will first need to set up a Python virtual environment to run this project locally (see above). Then you can run the automated tests from the root directory, using the command line:
+```
+(env) $ pytest
 ```
 
 ## The Data and the Model
