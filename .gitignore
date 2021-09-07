@@ -13,6 +13,11 @@ __pycache__/
 # Keras Models
 *model/*
 
+# Images Downloaded for Testing
+*.jpg
+*.jpeg
+*.png
+
 # Distribution / packaging
 .Python
 build/
