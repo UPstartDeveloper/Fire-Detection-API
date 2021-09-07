@@ -1,4 +1,7 @@
 # DeepFire
+![This repo has a MIT license](https://img.shields.io/github/license/UPstartDeveloper/Fire-Detection-API)
+![Automated tests passing on Travis (.org)](https://img.shields.io/travis/UPstartDeveloper/Fire-Detection-API)
+![Docker Image Size (latest)](https://img.shields.io/docker/image-size/zainrazatheupstart/fire-classifier-api/latest)
 ![Project cover image](https://i.postimg.cc/d1tr9S2H/Screen-Shot-2021-09-02-at-12-37-00-PM.png)
 An API for detecting fires in images using deep learning.
 
@@ -37,9 +40,10 @@ To run the tests, you will first need to set up a Python virtual environment to 
 ```
 (env) $ pytest
 ```
-
+If there are no failures, then you should be good to go!
+You can inspect the code for the tests in `app/main_test.py` if you wish.
 ## The Data and the Model
-The image dataset and model used for the production API will be documented on the [Releases](https://github.com/UPstartDeveloper/Fire-Detection-API/releases) page of this repository.
+The image dataset and neural network model used for the production API will be documented on the [Releases](https://github.com/UPstartDeveloper/Fire-Detection-API/releases) page of this repository.
 
 ## Making Your Own Deep Learning API
 
