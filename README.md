@@ -20,7 +20,9 @@ You only need to use ONE of the following options:
 #### Option #1: Using Docker
 You can download this repository and run it using [Docker](https://www.docker.com/get-started):
 
-```docker compose up```
+```
+$ docker compose up
+```
 
 Then head over to [http://localhost:8000/docs](http://localhost:8000/docs) or [http://localhost:8000/redoc](http://localhost:8000/redoc) in the browser.
 
