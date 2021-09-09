@@ -22,6 +22,8 @@ You can download this repository and run it using [Docker](https://www.docker.co
 
 ```docker compose up```
 
+Then head over to [http://localhost:8000/docs](http://localhost:8000/docs) or [http://localhost:8000/redoc](http://localhost:8000/redoc) in the browser.
+
 #### Option #2: Using Virtual Environments
 
 Alternatively, you can also make a virtual environment. This is *recommended*, as it will allow you to also run the automated tests as well 
@@ -36,6 +38,7 @@ And then run the app using `uvicorn` in the Command Line:
 ```
 (env) $ uvicorn app.main:app --reload  
 ```
+Then head over to [http://localhost:8000/docs](http://localhost:8000/docs) or [http://localhost:8000/redoc](http://localhost:8000/redoc) in the browser.
 
 ### Run the Tests
 To run the tests, you will first need to set up a Python virtual environment to run this project locally (see above). Then you can run the automated tests from the root directory, using the command line:
