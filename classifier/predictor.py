@@ -27,8 +27,10 @@ class ImagePredictor:
 
     def predict_from_array(self, arr) -> Dict[str, float]:
         """Returns a prediction value the sample belongs to each class."""
-        pred = self.model.predict(arr[np.newaxis, ...]).ravel().tolist()
-        pred = [round(x, 3) for x in pred]  # values between 0-1
+        # in this model, 'Normal Images' is the positive class (labeled by 1)
+        pred_arr = self.model.predict(arr[np.newaxis, ...]).ravel().tolist()
+        # so we convert the probability to predict for 'Fire_Images'
+        pred = [1 - probability for probability in pred_arr]  
         return {class_label: prob for class_label, prob in zip(self.targets, pred)}
 
     def predict_from_file(self, file_object):
