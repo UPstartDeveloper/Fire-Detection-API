@@ -32,7 +32,9 @@ class ImagePredictor:
         pred_arr = self.model.predict(arr[np.newaxis, ...]).ravel()
         pred = tf.keras.activations.sigmoid(pred_arr).numpy().tolist()
         # so we convert the probability to predict for 'Fire_Images'
-        return {class_label: (1 - prob) for class_label, prob in zip(self.targets, pred)}
+        return {
+            class_label: (1 - prob) for class_label, prob in zip(self.targets, pred)
+        }
 
     def predict_from_file(self, file_object):
         """Converts uploaded image to a NumPy array and classifies it."""
