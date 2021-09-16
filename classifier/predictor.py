@@ -1,6 +1,7 @@
 import argparse
 
 import numpy as np
+import tensorflow as tf
 from typing import Dict
 import yaml
 
@@ -28,10 +29,10 @@ class ImagePredictor:
     def predict_from_array(self, arr) -> Dict[str, float]:
         """Returns a prediction value the sample belongs to each class."""
         # in this model, 'Normal Images' is the positive class (labeled by 1)
-        pred_arr = self.model.predict(arr[np.newaxis, ...]).ravel().tolist()
+        pred_arr = self.model.predict(arr[np.newaxis, ...]).ravel()
+        pred = tf.keras.activations.sigmoid(pred_arr).numpy().tolist()
         # so we convert the probability to predict for 'Fire_Images'
-        pred = [1 - probability for probability in pred_arr]  
-        return {class_label: prob for class_label, prob in zip(self.targets, pred)}
+        return {class_label: (1 - prob) for class_label, prob in zip(self.targets, pred)}
 
     def predict_from_file(self, file_object):
         """Converts uploaded image to a NumPy array and classifies it."""
