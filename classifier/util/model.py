@@ -95,10 +95,18 @@ class ModelUtility:
         Returns:
             keras.Model object
         """
+        def _separate_files(file_paths):
+            '''Looks for the H5 and/or JSON files in the given list.'''
+            file1, file2 = file_paths
+            # returns these file paths in the order: (some_file.h5, some_file.json)
+            if file1.__contains__('.h5') or file1.__contains__('params'):
+                return file1, file2
+            else:  # the json file was listed first, so return the files in reverse
+                return file2, file1
 
         def _model_from_composite_format():
             """Specific to using H5 + JSON as the save format"""
-            params_file, layers_file = self.file_paths
+            params_file, layers_file = _separate_files(self.file_paths)
             # load the model in memory
             with open(f"./model/{layers_file}") as f:
                 model = keras.models.model_from_json(f.read())  # build the layers

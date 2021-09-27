@@ -10,6 +10,9 @@ __pycache__/
 .DS_Store
 .vscode
 
+# AWS stuff
+*.pem
+
 # Keras Models
 model/
 
