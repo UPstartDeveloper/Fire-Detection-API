@@ -8,5 +8,5 @@ RUN apt update
 RUN apt install -y git
 RUN apt-get install -y libglib2.0-0
 RUN pip install -r requirements.txt
-EXPOSE 8080
+EXPOSE 5000
 ENTRYPOINT ["python3", "serve.py"]
