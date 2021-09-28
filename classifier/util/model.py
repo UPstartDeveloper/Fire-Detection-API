@@ -95,11 +95,12 @@ class ModelUtility:
         Returns:
             keras.Model object
         """
+
         def _separate_files(file_paths):
-            '''Looks for the H5 and/or JSON files in the given list.'''
+            """Looks for the H5 and/or JSON files in the given list."""
             file1, file2 = file_paths
             # returns these file paths in the order: (some_file.h5, some_file.json)
-            if file1.__contains__('.h5') or file1.__contains__('params'):
+            if file1.__contains__(".h5") or file1.__contains__("params"):
                 return file1, file2
             else:  # the json file was listed first, so return the files in reverse
                 return file2, file1

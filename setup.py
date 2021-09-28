@@ -13,7 +13,7 @@ except:
 
 # Use this if you plan to turn this project into a PyPI package!
 setup(
-    name="YOUR_API_NAMME",
+    name="YOUR_API_NAME",
     version="0.1.0",
     description="ADD_A_DESCRIPTION",
     author="YOUR_NAME",
