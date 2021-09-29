@@ -32,7 +32,8 @@ class ImagePredictor:
         pred = self.model.predict(arr[np.newaxis, ...]).ravel().tolist()
         # so we convert the probability to predict for 'Fire_Images'
         return {
-            class_label: float(1.0 - prob) for class_label, prob in zip(self.targets, pred)
+            class_label: float(1.0 - prob)
+            for class_label, prob in zip(self.targets, pred)
         }
 
     def predict_from_file(self, file_object):
