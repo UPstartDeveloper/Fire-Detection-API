@@ -21,7 +21,7 @@ You only need to use ONE of the following options:
 You can download this repository and run it using [Docker](https://www.docker.com/get-started):
 
 ```
-$ docker compose up
+$ docker-compose up
 ```
 
 Then head over to [http://localhost:8000/docs](http://localhost:8000/docs) or [http://localhost:8000/redoc](http://localhost:8000/redoc) in the browser.
@@ -53,18 +53,10 @@ You can inspect the code for the tests in `app/main_test.py` if you wish.
 The image dataset and neural network model used for the production API will be documented on the [Releases](https://github.com/UPstartDeveloper/Fire-Detection-API/releases) page of this repository.
 
 ## Making Your Own Deep Learning API
+To customize this project for your own purposes, I'd recommend doing the following:
 
-TBD
-
-## Deploying to Heroku
-
-TBD
-## Stretch Challenges
-
-In this project, we've worked with different tools like Tensorflow, Docker, FastAPI and Heroku. The next steps would be to two-fold:
-
-- For the **modelling** engineers: how would you improve the neural networks performance?
-- For the **MLOps** engineers: how would you improve the performance and scalability of the REST API in production?
+1. Configure the [config.yaml](./app/config.yaml) to download your particular model of interest. 
+2. To edit the API metadata (including what appears on the UI), you may edit the values in [settings.py](./app/settings.py). For a more extensive list of the kinds of metadata you can change, please double check with the [FastAPI documentation](https://fastapi.tiangolo.com/tutorial/metadata/?h=meta).
 
 ## Credits and Resources
 1. This *Towards Data Science* [blog](https://towardsdatascience.com/a-step-by-step-tutorial-to-build-and-deploy-an-image-classification-api-95fa449f0f6a) by Youness Mansar will give you a little more detail on how you can build a deployment-driven deep learning project (using the Google Cloud Platform's App Engine).
