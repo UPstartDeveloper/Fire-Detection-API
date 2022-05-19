@@ -24,7 +24,9 @@ You can download this repository and run it using [Docker](https://www.docker.co
 $ docker-compose up
 ```
 
-Then head over to [http://localhost:8000/docs](http://localhost:8000/docs) or [http://localhost:8000/redoc](http://localhost:8000/redoc) in the browser.
+Then head over to [http://localhost:8000/docs](http://localhost:8000/docs) or [http://localhost:8000/redoc](http://localhost:8000/redoc) in the browser. Here is a screenshot exemplifying what you might see (specifically for [Redoc](https://redocly.com/redoc/)):
+ 
+![Project screenshot](./assets/redoc_page.png)
 
 #### Option #2: Using Virtual Environments
 
